@@ -1,7 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
 import { Home } from './helpers/home';
-import { Catregories } from './helpers/category';
-import { Category } from './helpers/categoryBase';
+import { Category, Categories } from '../PruebasRuben/helpers/category';
+
 
 let home: Home;
 
@@ -13,22 +13,23 @@ test.beforeEach(async ({ page }) => {
 
 test('landing', async ({ page }) => {
 
-
-
-  // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/STORE/);
 });
 
 test('has categories', async ({ page }) => {
 
 
-  const categories = new Catregories(page);
+  const categories = new Categories(page);
   await categories.validateCategories();  
 });
 
 test('go Monitor', async ({ page }) => {
 
-  const categories = new Catregories(page);
+  const categories = new Categories(page);
   await categories.goCategory(Category.Monitors);
 
 });
+
+// En otro archivo, por ejemplo: test.spec.ts
+
+
