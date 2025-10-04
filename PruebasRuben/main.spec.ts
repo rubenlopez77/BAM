@@ -1,35 +1,34 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 import { Home } from './helpers/home';
+import { Catregories } from './helpers/category';
+import { Category } from './helpers/categoryBase';
+
+let home: Home;
+
+test.beforeEach(async ({ page }) => {
+  home = new Home(page);
+  await home.goto(); // navega a la página de inicio antes de cada test
+});
+
 
 test('landing', async ({ page }) => {
-  await page.goto('https://www.demoblaze.com');
+
+
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/STORE/);
 });
 
 test('has categories', async ({ page }) => {
-  
-  
-  const home = new Home(page);
-  await home.goto();     
 
 
+  const categories = new Catregories(page);
+  await categories.validateCategories();  
 });
 
-
 test('go Monitor', async ({ page }) => {
-  await page.goto('https://www.demoblaze.com');
 
-  const catElement = page.locator('#cat');
-  const items = catElement.locator('~ .list-group-item');
-
-  // Contamos cuántos hay
-  const count = await items.count();
-  expect(count).toBe(3);
-
-
-  const categoiesName = await items.allTextContents();
-  expect(categoiesName).toEqual(['Phones', 'Laptops', 'Monitors']);
+  const categories = new Catregories(page);
+  await categories.goCategory(Category.Monitors);
 
 });
