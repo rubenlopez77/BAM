@@ -9,6 +9,7 @@ export enum MenuOptions {
     Cart = 'Cart',
     Login = 'Log in',
     Signup = 'Sign up',
+    Logout = 'Log out',
 }
 
   export class Menu {
@@ -17,7 +18,7 @@ export enum MenuOptions {
 
     constructor(page: Page) {
       this.page = page;
-      this.menuElement = this.page.locator('#navbarExample');
+      this.menuElement = this.page.locator('#navbarExample')
 
     } 
     
@@ -25,14 +26,19 @@ export enum MenuOptions {
     /// Valida que las opciones del menú sean las esperadas
     /// </summary>    
     public async validateMenu(): Promise<void> {
+    const navItemTexts = await this.menuElement.locator('.nav-item:visible').allInnerTexts();
 
-    const navItemTexts = await this.menuElement.locator('.nav-item').allInnerTexts();
     const menuOptionsValues = Object.values(MenuOptions) as string[]; 
 
-    const tools = new Tools(this.page);
+    const tools = new Tools(this.page)
+    
+    
+    tools.screenshot(this.page) //testing
 
+    // TODO: Deberia cambiar el menu si es logado o no. de momento asi
     for (const text of navItemTexts) {
-      await expect(menuOptionsValues).toContain(await tools.cleanText(text));
+        await expect(menuOptionsValues).toContain(await tools.cleanText(text))
+      
     }
   }
 
@@ -45,16 +51,6 @@ export enum MenuOptions {
       
 
 
-
-
-//await expect(page.locator('#navbarExample')).toBeVisible();
-// await expect(page.locator('#navbarExample')).toBeVisible();
-
-// const navLinks = ['Home', 'Contact', 'About us', 'Cart', 'Log in', 'Sign up'];
-
-// for (const link of navLinks) {
-//   await expect(page.getByRole('link', { name: link })).toBeVisible();
-// }
 
 
 
