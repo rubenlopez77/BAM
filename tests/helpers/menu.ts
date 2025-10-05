@@ -1,5 +1,6 @@
 import { expect, Page, Locator } from '@playwright/test';
-import { Tools } from '../base/tools';
+import { ToolsTexts } from '../tools/texts';
+import { ToolsDebug } from '../tools/debug';
 
 
 export enum MenuOptions {
@@ -30,14 +31,12 @@ export enum MenuOptions {
 
     const menuOptionsValues = Object.values(MenuOptions) as string[]; 
 
-    const tools = new Tools(this.page)
-    
-    
-    tools.screenshot(this.page) //testing
+    await new ToolsDebug(this.page).screenshot(this.page);
+    const tt = new ToolsTexts()
 
     // TODO: Deberia cambiar el menu si es logado o no. de momento asi
     for (const text of navItemTexts) {
-        await expect(menuOptionsValues).toContain(await tools.cleanText(text))
+        await expect(menuOptionsValues).toContain(await tt.cleanText(text))
       
     }
   }

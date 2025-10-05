@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './PruebasRuben',
+  testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -29,9 +29,9 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-  headless: true, // 👈 se aplica a todos los test s
-    screenshot: 'only-on-failure', // 🎯 esta línea ya hace screenshots automáticos
+    trace: 'retain-on-failure',
+    headless: true, 
+    screenshot: 'only-on-failure', 
     video: 'retain-on-failure',
   },
 

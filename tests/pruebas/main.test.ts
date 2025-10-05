@@ -1,14 +1,14 @@
 import { test, expect, Page } from '@playwright/test';
-import { Home } from './helpers/home';
-import { Category, Categories } from '../PruebasRuben/helpers/category';
-import { Menu, MenuOptions } from '../PruebasRuben/helpers/menu';
+import { Home } from '../helpers/home';
+import { Category, Categories } from '../helpers/category';
+import { Menu, MenuOptions } from '../helpers/menu';
 
 
 let home: Home;
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page }) => {// al inicio de cada test <--
   home = new Home(page);
-  await home.goto(); // al inicio de cada test <--
+  await home.goto(); 
 });
 
 

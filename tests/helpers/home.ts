@@ -1,5 +1,5 @@
 import { expect, Page, Locator } from '@playwright/test';
-
+import * as dotenv from 'dotenv';
 
         
     /// <summary>
@@ -15,11 +15,13 @@ export class Home {
     /// </summary>
 
   public async goto(): Promise<void> {
-    await this.page.goto('https://www.demoblaze.com');
     
-     
+    
 
-    
+    dotenv.config({ path: '.env.qa' }); // carga el .env.qa
+    const url = process.env.URL!;
+
+    await this.page.goto(url);
   }
 
 
