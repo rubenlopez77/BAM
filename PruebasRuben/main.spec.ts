@@ -1,19 +1,36 @@
 import { test, expect, Page } from '@playwright/test';
 import { Home } from './helpers/home';
 import { Category, Categories } from '../PruebasRuben/helpers/category';
+import { Menu, MenuOptions } from '../PruebasRuben/helpers/menu';
 
 
 let home: Home;
 
 test.beforeEach(async ({ page }) => {
   home = new Home(page);
-  await home.goto(); // navega a la página de inicio antes de cada test
+  await home.goto(); // al inicio de cada test <--
 });
 
 
 test('landing', async ({ page }) => {
 
-  await expect(page).toHaveTitle(/STORE/);
+  // HEADER Todo: Header a su clase
+  await expect(page).toHaveTitle("STORE");
+  await expect(page.getByRole('heading', { name: 'STORE' })).toBeVisible();
+
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', 'favicon.ico');
+  
+  const response = await page.request.get(`${new URL(page.url()).origin}/favicon.ico`);
+  console.log(response.status());
+  expect(response.ok()).toBeTruthy();
+  
+  // MENU
+  const menu = new Menu(page);
+  await menu.validateMenu();
+
+  // FOOTER Todo tambien a su clase
+  await expect(page.locator('footer').locator('text=Copyright © Product Store 2017')).toBeVisible();
+
 });
 
 test('has categories', async ({ page }) => {
@@ -30,6 +47,5 @@ test('go Monitor', async ({ page }) => {
 
 });
 
-// En otro archivo, por ejemplo: test.spec.ts
 
 
