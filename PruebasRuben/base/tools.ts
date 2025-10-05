@@ -23,21 +23,23 @@ export class Tools {
       return g;
     }
    
-  
-  public async screenshot(page: Page, filename: string = 'screenshot'): Promise<void> {
-    const now = new Date();
-    const userFolder = process.env.USERPROFILE || process.env.HOME;
-    const folderName = new Date().toISOString().replace(/[:.]/g, '-');
-    const screenshotsDir = path.join(userFolder!, 'debutTest', folderName);
+    /// <summary>           
+    /// Experimento. Intentando replicar mi función de Screenshoots. Sin reflection es mas divertido
+    /// </summary>  
+    public async screenshot(page: Page, filename: string = 'screenshot'): Promise<void> {
+      const now = new Date();
+      const userFolder = process.env.USERPROFILE || process.env.HOME;
+      const folderName = new Date().toISOString().replace(/[:.]/g, '-');
+      const screenshotsDir = path.join(userFolder!, 'debutTest', folderName);
 
-    fs.mkdirSync(screenshotsDir, { recursive: true });
+      fs.mkdirSync(screenshotsDir, { recursive: true });
 
-    const fileName = `${filename}.png`;
-    const filePath = path.join(screenshotsDir, fileName);
+      const fileName = `${filename}.png`;
+      const filePath = path.join(screenshotsDir, fileName);
 
-    await page.screenshot({
-      path: filePath,
-      fullPage: true,
+      await page.screenshot({
+        path: filePath,
+        fullPage: true,
     });
 
 
