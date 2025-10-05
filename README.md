@@ -1,12 +1,33 @@
 
+Proyecto personal para **experimentar** con Playwright y TypeScript, con el objetivo de comparar y replicar la flexibilidad de Selenium
 
-Proyecto personal para ir practicando Playwright con typescript. Se puede replicar la flexibilidad de Selenium?. Veremos.
-
-### Proyecto personal para ir probando Selenium -> Playwright con typescript
+### Launch test 
 
 ```
 npx playwright test
 ```
 
+### Launch test on UI mode
 
- No hay data-testid 
+```
+npx playwright test --ui
+```
+
+
+El proyecto utiliza archivos .env para gestionar las variables de entorno:
+
+.env.dev: Configuración para el entorno de desarrollo.
+
+.env.qa: Configuración para un supuesto entorno de QA
+
+```
+URL=https://www.demoblaze.com
+USER=user
+PASS=pass
+
+```
+
+Las pruebas se encuentran en la carpeta tests. Cada archivo de prueba sigue el formato *.test.ts y puede incluir:
+
+
+
