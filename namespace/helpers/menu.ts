@@ -43,21 +43,35 @@ export enum MenuOptions {
     public async goMenu(menu: MenuOptions): Promise<void> {
     
      await this.page.locator('.navbar-nav').getByRole('link', { name: menu}).click(); 
+
+
+
   }
   
 
-      public async isLogged(user: string): Promise<boolean> {
-
-      const userElement = this.page.locator('#nameofuser');
-      await expect(userElement).toBeVisible(); // asegura que el elemento esté en el DOM
-      const userText = await userElement.textContent();
-
-      return userText === `Welcome ${user}`;
+      public async isLogged(user: string=""): Promise<boolean> {
 
 
+        if (user != '')
+        {
+          const userElement = this.page.locator('#nameofuser');
+          await expect(userElement).toBeVisible(); // asegura que el elemento esté en el DOM
+        
+          const userText = await userElement.textContent();
+          return userText === `Welcome ${user}`;
 
+        } else {
 
-      return true;
+          await expect(this.menuElement).toBeVisible(); // asegura que el elemento esté en el DOM
+          
+          const element = this.page.locator('#nameofuser');
+          return (await element.isVisible().catch(() => false));
+
+        }
+  
+    
+
+    
 
       }
 

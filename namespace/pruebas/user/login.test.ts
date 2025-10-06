@@ -9,32 +9,29 @@ let home: Home;
 test.beforeEach(async ({ page }) => {// al inicio de cada test <--
   home = new Home(page);
   await home.goto(); 
-
-  const menu = new Menu(page);
-  await menu.goMenu(MenuOptions.Login);
-
 });
 
 
 test('go Login Cancel', async ({ page }) => { //Probamos que se puede cancelar el modal de login
 
   const user = new User(page);
-  await user.goLoginCancel();
+  await user.doLoginCancel();
 
 });
 
 test('go Login KO', async ({ page }) => {  //Probamos que no valida datos incorrectos
 
   const user = new User(page);
-  await user.goLogin("login", "KO", false);
+  await user.doLogin("login", "KO", false);
 
 });
 
 
-test('go Login OK', async ({ page }) => { // //Probamos que se valida correctamente
+test('go Login Logout', async ({ page }) => { // //Probamos que se valida correctamente
 
   const user = new User(page);
-  await user.goLogin(env.USER,env.PASS);
+  await user.doLogin(env.USER,env.PASS);
 
+  await user.doLogOut();
 });
 
