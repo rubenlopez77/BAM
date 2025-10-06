@@ -40,6 +40,23 @@ export enum MenuOptions {
       
     }
   }
+    public async goMenu(menu: MenuOptions): Promise<void> {
+    
+        //await this.menuElement.locator(`:has-text("${menu}")`).click(); TODO
+    
+       // Switch 
+        switch (menu) {
+          case MenuOptions.Login:
+            
+
+         
+          break;
+          default:
+            throw new Error(`Menu no implementado: ${menu}`);
+        }
+    
+      }
+  
 
 
 }

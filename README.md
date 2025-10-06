@@ -1,6 +1,7 @@
 
 Proyecto personal para **experimentar** con Playwright y TypeScript, con el objetivo de comparar y replicar la flexibilidad de Selenium
 
+
 ### Launch test 
 
 ```
@@ -12,6 +13,7 @@ npx playwright test
 ```
 npx playwright test --ui
 ```
+
 
 
 El proyecto utiliza archivos .env para gestionar las variables de entorno:
@@ -27,7 +29,9 @@ PASS=pass
 
 ```
 
-Las pruebas se encuentran en la carpeta tests. Cada archivo de prueba sigue el formato *.test.ts y puede incluir:
+
+- Las pruebas se encuentran en la carpeta /namespace/pruebas. Cada archivo de prueba sigue el formato *.test.ts 
+- /preuebas/main.test.ts es el lugar para juguetear
 
 
 

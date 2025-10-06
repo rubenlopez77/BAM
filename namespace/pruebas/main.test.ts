@@ -4,6 +4,7 @@ import { Category, Categories } from '../helpers/category';
 import { Menu, MenuOptions } from '../helpers/menu';
 
 
+
 let home: Home;
 
 test.beforeEach(async ({ page }) => {// al inicio de cada test <--
@@ -46,6 +47,7 @@ test('go Monitor', async ({ page }) => {
   await categories.goCategory(Category.Monitors);
 
 });
+
 
 
 
