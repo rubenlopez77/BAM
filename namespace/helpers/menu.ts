@@ -42,22 +42,24 @@ export enum MenuOptions {
   }
     public async goMenu(menu: MenuOptions): Promise<void> {
     
-        //await this.menuElement.locator(`:has-text("${menu}")`).click(); TODO
-    
-       // Switch 
-        switch (menu) {
-          case MenuOptions.Login:
-            
-
-         
-          break;
-          default:
-            throw new Error(`Menu no implementado: ${menu}`);
-        }
-    
-      }
+     await this.page.locator('.navbar-nav').getByRole('link', { name: menu}).click(); 
+  }
   
 
+      public async isLogged(user: string): Promise<boolean> {
+
+      const userElement = this.page.locator('#nameofuser');
+      await expect(userElement).toBeVisible(); // asegura que el elemento esté en el DOM
+      const userText = await userElement.textContent();
+
+      return userText === `Welcome ${user}`;
+
+
+
+
+      return true;
+
+      }
 
 }
 
