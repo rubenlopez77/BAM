@@ -23,15 +23,16 @@ El proyecto utiliza archivos .env para gestionar las variables de entorno:
 .env.qa: Configuración para un supuesto entorno de QA
 
 ```
-URL=https://www.demoblaze.com
+URL=https://...
 USER=user
 PASS=pass
-
 ```
 
 
 - Las pruebas se encuentran en la carpeta /namespace/pruebas. Cada archivo de prueba sigue el formato *.test.ts 
-- /preuebas/main.test.ts es el lugar para juguetear
+- /namespace/pruebas/user/login -> Login flow
+
+- /namespace/main.test.ts es el lugar para juguetear
 
 
 
