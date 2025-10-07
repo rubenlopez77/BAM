@@ -31,7 +31,7 @@ export enum MenuOptions {
 
     const menuOptionsValues = Object.values(MenuOptions) as string[]; 
 
-    await new ToolsDebug(this.page).screenshot(this.page);
+    //await new ToolsDebug(this.page).screenshot(this.page); Desactivado
     const tt = new ToolsTexts()
 
     // TODO: Deberia cambiar el menu si es logado o no. de momento asi

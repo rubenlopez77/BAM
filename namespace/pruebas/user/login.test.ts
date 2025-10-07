@@ -1,7 +1,6 @@
 import { test, expect, Page } from '@playwright/test';
 import { Home } from '../../helpers/home'
 import { User } from '../../helpers/login'
-import { Menu, MenuOptions } from '../../helpers/menu';
 import env from '../../tools/env';
 
 let home: Home;
