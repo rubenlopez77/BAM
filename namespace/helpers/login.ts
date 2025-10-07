@@ -32,7 +32,8 @@ export class User {
   
     if (success){
       await loginModal.locator('button', { hasText: 'Log in' }).click();
-      
+      await this.page.waitForTimeout(4000); // espera 4 segundos
+
       await expect(loginModal).toBeHidden({ timeout: 10000 });
 
      const userElement = this.page.locator('#nameofuser');
