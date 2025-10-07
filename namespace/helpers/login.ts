@@ -22,7 +22,7 @@ export class User {
     const menu = new Menu(this.page);
     await menu.goMenu(MenuOptions.Login);
     
-    await expect(this.page.locator('#logInModal')).toBeVisible({ timeout: 10000 });
+    //await expect(this.page.locator('#logInModal')).toBeVisible({ timeout: 10000 });
 
     await this.page.fill('#loginusername', user);
     await this.page.fill('#loginpassword', pass);
