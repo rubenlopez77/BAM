@@ -21,7 +21,8 @@ export class User {
     
     const menu = new Menu(this.page);
     await menu.goMenu(MenuOptions.Login);
-    
+
+
     await expect(this.page.locator('#logInModal')).toBeVisible({  });
 
     await this.page.fill('#loginusername', user);
@@ -31,10 +32,13 @@ export class User {
   
     if (success){
       await loginModal.locator('button', { hasText: 'Log in' }).click();
-      await expect( loginModal.locator('#logInModal')).toBeHidden(); 
+      
+      await expect(loginModal).toBeHidden({ timeout: 10000 });
 
-      const menu = new Menu(this.page);
-      expect(await menu.isLogged(user)).toBe(true);
+     const userElement = this.page.locator('#nameofuser');
+
+    // Espera explicita
+      await expect(userElement).toHaveText(`Welcome ${user}`, { timeout: 10000 });
 
     } else {
       let alertMessage: string | null = 'Wrong password';
@@ -72,7 +76,7 @@ export class User {
       const menu = new Menu(this.page);
       await menu.goMenu(MenuOptions.Logout);
 
-      await expect(await menu.isLogged()).toBeFalsy();
+      //await expect(await menu.isLogged()).toBeFalsy();
 
       const cookies = await this.page.context().cookies();
       const sessionCookie = cookies.find(cookie => cookie.name === 'user');

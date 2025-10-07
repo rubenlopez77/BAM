@@ -47,31 +47,31 @@ export enum MenuOptions {
   }
   
 
-      public async isLogged(user: string=""): Promise<boolean> {
+      // public async isLogged(user: string=""): Promise<boolean> {
 
 
-        if (user != '')
-        {
-          const userElement = this.page.locator('#nameofuser');
-         // await expect(userElement).toBeVisible(); // asegura que el elemento esté en el DOM
+      //   if (user != '')
+      //   {
+      //     const userElement = this.page.locator('#nameofuser');
+      //     await expect(userElement).toBeVisible(); // asegura que el elemento esté en el DOM
         
-          const userText = await userElement.textContent();
-          return userText === `Welcome ${user}`;
+      //     const userText = await userElement.textContent();
+      //     return userText === `Welcome ${user}`;
 
-        } else {
+      //   } else {
 
-          await expect(this.menuElement).toBeVisible(); // asegura que el elemento esté en el DOM
+      //     await expect(this.menuElement).toBeVisible(); // asegura que el elemento esté en el DOM
           
-          const element = this.page.locator('#nameofuser');
-          return (await element.isVisible().catch(() => false));
+      //     const element = this.page.locator('#nameofuser');
+      //     return (await element.isVisible().catch(() => false));
 
-        }
+      //   }
   
     
 
     
 
-      }
+      // }
 
 }
 
