@@ -19,9 +19,11 @@ test('landing', async ({ page }) => {
   await expect(page).toHaveTitle("STORE");
   await expect(page.getByRole('heading', { name: 'STORE' })).toBeVisible();
 
-  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', 'favicon.ico');
+  await expect(page.locator('link[rel="icon"][sizes="32x32"]')).toHaveAttribute('href', 'blazemeter-favicon-32x32.png');
   
-  const response = await page.request.get(`${new URL(page.url()).origin}/favicon.ico`);
+
+
+  const response = await page.request.get(`${new URL(page.url()).origin}/blazemeter-favicon-32x32.png`);
   console.log(response.status());
   expect(response.ok()).toBeTruthy();
   
@@ -30,7 +32,7 @@ test('landing', async ({ page }) => {
   await menu.validateMenu();
 
   // FOOTER Todo tambien a su clase
-  await expect(page.locator('footer').locator('text=Copyright © Product Store 2017')).toBeVisible();
+  await expect(page.locator('footer').locator('text=Copyright © Product Store')).toBeVisible();
 
 });
 
