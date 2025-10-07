@@ -24,24 +24,36 @@ export class User {
 
 
     await expect(this.page.locator('#logInModal')).toBeVisible({  });
+    const loginModal = await this.page.locator('#logInModal');
 
-    await this.page.fill('#loginusername', user);
-    await this.page.fill('#loginpassword', pass);
+    const usernameField = this.page.locator('#loginusername');
+    const passwordField = this.page.locator('#loginpassword');
 
-    const loginModal = this.page.locator('#logInModal');
+    await expect(usernameField).toBeVisible();
+    await expect(passwordField).toBeVisible();
+
+
+    await usernameField.fill(user);
+    await passwordField.fill(pass);
+
+
+    //await this.page.fill('#loginusername', user);
+    //await this.page.fill('#loginpassword', pass);
+
+   
   
     if (success){
       await loginModal.locator('button', { hasText: 'Log in' }).click();
-      await this.page.waitForTimeout(4000); // espera 4 segundos
-
+      
       await expect(loginModal).toBeHidden({ timeout: 10000 });
 
      const userElement = this.page.locator('#nameofuser');
 
     // Espera explicita
-      await expect(userElement).toHaveText(`Welcome ${user}`, { timeout: 10000 });
+      await expect(userElement).toHaveText(`Welcome ${user}`, {});
 
     } else {
+        await this.page.waitForTimeout(4000); 
       let alertMessage: string | null = 'Wrong password';
       this.page.once('dialog', async dialog => {
         alertMessage = dialog.message();
