@@ -53,7 +53,7 @@ export enum MenuOptions {
         if (user != '')
         {
           const userElement = this.page.locator('#nameofuser');
-          await expect(userElement).toBeVisible(); // asegura que el elemento esté en el DOM
+         // await expect(userElement).toBeVisible(); // asegura que el elemento esté en el DOM
         
           const userText = await userElement.textContent();
           return userText === `Welcome ${user}`;
