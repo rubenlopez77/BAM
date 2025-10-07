@@ -44,8 +44,6 @@ export enum MenuOptions {
     
      await this.page.locator('.navbar-nav').getByRole('link', { name: menu}).click(); 
 
-
-
   }
   
 

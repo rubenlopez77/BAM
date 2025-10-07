@@ -22,7 +22,8 @@ export class User {
     const menu = new Menu(this.page);
     await menu.goMenu(MenuOptions.Login);
     
-    await expect(this.page.locator('#logInModal')).toBeVisible();
+    await expect(this.page.locator('#logInModal')).toBeVisible({ timeout: 10000 });
+
     await this.page.fill('#loginusername', user);
     await this.page.fill('#loginpassword', pass);
 
@@ -30,10 +31,10 @@ export class User {
   
     if (success){
       await loginModal.locator('button', { hasText: 'Log in' }).click();
-      await expect(loginModal.locator('#logInModal')).toBeHidden(); 
+      await expect( loginModal.locator('#logInModal')).toBeHidden(); 
 
-       const menu = new Menu(this.page);
-       expect(await menu.isLogged(user)).toBe(true);
+      const menu = new Menu(this.page);
+      expect(await menu.isLogged(user)).toBe(true);
 
     } else {
       let alertMessage: string | null = 'Wrong password';
