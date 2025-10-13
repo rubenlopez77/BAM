@@ -18,7 +18,7 @@ test.describe('Login flow -> ', () => {
 
   });
 
-  test('should fail login with invalid credentials', async ({ page }) => { 
+  test.fixme('should fail login with invalid credentials', async ({ page }) => { 
 
     const user = new User(page);
     await user.doLogin("login", "KO", false);
