@@ -16,9 +16,9 @@ De este modo, la IA contribuye en tareas de análisis de logs, detección de pat
 
 ---
 
-## 🧩 Behavior Annotation Model (BAM)
+## 🧩 Behavior Annotation Model (BAM!)
 
-El modelo **BAM** surge como una evolución natural del POM multicapa, combinando la claridad declarativa del BDD con el rigor tipado de TypeScript.
+El modelo **BAM!** surge como una evolución natural del POM multicapa, combinando la claridad declarativa del BDD con el rigor tipado de TypeScript.
 
 Este enfoque híbrido permite mantener trazabilidad y semántica funcional sin duplicar código ni depender de ficheros .feature sin alterar la base técnica del framework
 
@@ -34,8 +34,9 @@ El resultado es una arquitectura más ligera, verificable y alineada con ISTQB, 
  */
 ```
 
+
 📊 **Matriz de Evaluación**
-| Criterio | BDD Clásico | Arquitectura Multicapa | BAM |
+| Criterio | BDD Clásico | Arquitectura Multicapa | BAM! |
 |-----------|-------------|------------------------|-----|
 | **Trazabilidad** | ✅ Excelente | ❌ Limitada | ✅ Excelente |
 | **Mantenibilidad** | ❌ Baja | ✅ Alta | ✅ Alta |
@@ -43,6 +44,7 @@ El resultado es una arquitectura más ligera, verificable y alineada con ISTQB, 
 | **Business Visibility** | ✅ Alta | ❌ Nula | ⚙️ Media‑Alta |
 | **Technical Debt** | ❌ Alta | ✅ Baja | ✅ Baja |
 | **AI Compatibility** | ❌ Difícil | ⚙️ Media | ✅ Alta |
+
 
 ## 🧩 ESLint Plugin – BAM! Validation
 El BAM! ESLint Plugin es una herramienta de validación estática diseñada para garantizar la trazabilidad y consistencia semántica de los tests.
@@ -79,7 +81,7 @@ module.exports = {
 
 ## 🧱 Capas de Abstracción y Arquitectura de Automatización
 
-El framework sigue una **arquitectura multicapa** basada en el patrón **Page Object Model (POM)** y en principios de **bajo acoplamiento y alta cohesión**, de acuerdo con las recomendaciones de **ISTQB** para frameworks de automatización sostenibles.
+El framework sigue una **arquitectura multicapa** basada en el patrón **Page Object Model (POM)** y en principios de **bajo acoplamiento y alta cohesión**.
 
 🧬 **Helper de componente → Helper de página (POM) → Prueba (feature / test)**
 
@@ -103,7 +105,7 @@ export class TextBoxHelper {
 ```
 
 #### 🧩 2. Helper de página (POM)
-Filosofía “Single Level of Abstraction per Layer”, una recomendación clave del ISTQB.
+Filosofía “Single Level of Abstraction per Layer”,  recomendación clave del ISTQB.
 - No contiene locators directamente.
 - Expresa la acción de negocio, no los detalles de UI.
 - Representa una página completa o una vista funcional.  
@@ -153,7 +155,7 @@ Filosofía “Single Level of Abstraction per Layer”, una recomendación clave
 ---
 
 ## 🧩 Estrategia de Calidad y Mejores Prácticas
-- **Behavior Annotation Model (BAM)** extensión experimental, que añade **trazabilidad funcional y visibilidad de negocio** mediante anotaciones estructuradas directamente en el código.
+- **Behavior Annotation Model (BAM!)** extensión experimental, que añade **trazabilidad funcional y visibilidad de negocio** mediante anotaciones estructuradas directamente en el código.
 - **Page Objects:** una clase por página con acciones claras (`home()`, `login(user,pass)` etc.) con el mismo nombre del botón o enlace. *“El código se lee como una historia.”*  
 - **Selectors:** usar siempre `data-test` o atributos específicos del DOM.  
 - **Fixtures:** inicializar datos y estados en `beforeAll` o `beforeEach`.  
