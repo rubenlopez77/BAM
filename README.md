@@ -227,6 +227,13 @@ El proyecto se encuentra en una fase inicial pretende crecer, incorporando progr
 
 ---
 
+## Propuestas
+- Evaluar la migración del sistema de anotaciones JSDoc hacia **decoradores TypeScript** (@Behavior) para garantizar metadatos tipados, extracción programática y validación en tiempo de compilación.
+Este cambio fortalecerá la integridad semántica del modelo BAM! y permitirá una integración nativa con pipelines CI/CD y herramientas externas (Allure, JIRA, SonarQube, etc.)
+- Fortalecer la **Integración** con Herramientas y Stakeholders Empresariales
+Actualmente falta una capa de conexión que permita trasladar el valor del modelo BAM! a los entornos corporativos.
+Se sugiere definir un plan de integración bidireccional con herramientas de gestión de calidad (como JIRA, Xray, TestRail, SonarQube o Confluence), y establecer un lenguaje de trazabilidad accesible para audiencias no técnicas.
+
 ## 👨‍💻 Autor
 
 **Rubén López**  
