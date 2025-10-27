@@ -1,0 +1,6 @@
+projectKey=BAM
+serverUrl=https://sonar.rulope.com
+serverVersion=25.10.0.114319
+dashboardUrl=https://sonar.rulope.com/dashboard?id=BAM
+ceTaskId=43ba68f8-573c-417e-947c-f0cee09d833d
+ceTaskUrl=https://sonar.rulope.com/api/ce/task?id=43ba68f8-573c-417e-947c-f0cee09d833d

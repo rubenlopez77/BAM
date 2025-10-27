@@ -1,0 +1,44 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    /* === File Layout === */
+    "rootDir": "./",
+    "outDir": "./dist",
+
+    /* === Environment Settings === */
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node", "@playwright/test"],
+    "lib": ["ESNext", "DOM"],
+
+    /* === Output Options === */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* === Strict Type Checking === */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    /* === Module Behavior === */
+    "verbatimModuleSyntax": false,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+
+    /* === Path Aliases (para BAM) === */
+    "baseUrl": ".",
+    "paths": {
+      "@pages/*": ["helpers/pages/*"],
+      "@utils/*": ["helpers/utils/*"],
+      "@tests/*": ["tests/*"],
+      "@components/*": ["helpers/components/*"]
+    }
+  },
+  "include": ["helpers", "tests"],
+  "exclude": ["node_modules"]
+}

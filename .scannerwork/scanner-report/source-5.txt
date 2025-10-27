@@ -1,0 +1,72 @@
+import dotenv from "dotenv";
+import path from "node:path";
+import fs from "node:fs";
+
+/**
+ * Environment variables configuration interface
+ */
+interface EnvVars {
+  readonly BASE_URL: string;
+  readonly LOGIN: string;
+  readonly PASS: string;
+}
+
+/**
+ * Required environment variables configuration
+ */
+const REQUIRED_ENV_VARS = ["BASE_URL", "LOGIN", "PASS"] as const;
+
+/**
+ * Cache for loaded environment variables to avoid reloading
+ */
+let cachedEnvVars: EnvVars | null = null;
+
+/**
+ * Loads environment variables from the appropriate .env file based on PLAYWRIGHT_ENV
+ * @returns Object containing environment variables
+ * @throws Error if required environment variables are missing
+ */
+function loadEnvironmentVariables(): EnvVars {
+  // Return cached version if already loaded
+  if (cachedEnvVars) {
+    return cachedEnvVars;
+  }
+
+  const env = process.env.PLAYWRIGHT_ENV || "QA";
+  const envFile = path.resolve(process.cwd(), `.env.${env.toLowerCase()}`);
+
+  // Load environment file if it exists
+  if (fs.existsSync(envFile)) {
+    dotenv.config({ path: envFile });
+    console.log(`[BAM!:env] ✅ Environment loaded from ${envFile}`);
+  } else {
+    console.warn(`[BAM!:env] ⚠️ Environment file not found: ${envFile}`);
+  }
+
+  // Build environment variables object dynamically
+  const envVars = Object.fromEntries(
+    REQUIRED_ENV_VARS.map(key => [key, process.env[key] ?? ""])
+  ) as unknown as EnvVars;
+
+  // Validate required environment variables efficiently
+  const missingVars = REQUIRED_ENV_VARS.filter(key => !envVars[key]);
+  if (missingVars.length > 0) {
+    throw new Error(
+      `[BAM!:env] ❌ Missing required environment variables: ${missingVars.join(", ")}`
+    );
+  }
+
+  // Cache the result
+  cachedEnvVars = envVars;
+  return envVars;
+}
+
+/**
+ * Clears the environment variables cache (useful for testing)
+ */
+export function clearEnvCache(): void {
+  cachedEnvVars = null;
+}
+
+// Export the loaded environment variables
+export default loadEnvironmentVariables();

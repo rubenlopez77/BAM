@@ -1,0 +1,16 @@
+import { test } from '@playwright/test';
+import { Home } from '@pages/home.js';
+import { User } from '@pages/login.js';
+
+let home: Home;
+
+/**
+ * @ID REQ-LOGIN-001
+ * @Title Validación de login con credenciales inválidas
+ * @Description Usuario recibe error al introducir credenciales incorrectas
+ */
+test('should fail login with invalid credentials', async ({ page }) => {
+    const user = new User(page);
+    await user.doLogin('invalid_user', 'wrong_password', false);
+});
+  

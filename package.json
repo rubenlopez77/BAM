@@ -1,0 +1,31 @@
+{
+  "name": "bam-behavior-annotation-model",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Proyecto personal para **experimentar** con **Playwright + TypeScript**, con el objetivo de replicar la flexibilidad lograda previamente con Selenium, y explorar nuevas posibilidades en testing moderno orientado a **mantenibilidad, paralelización y trazabilidad**, incorporando además un enfoque experimental con **inteligencia artificial** para optimizar la generación, análisis y priorización de pruebas.",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubenlopez77/BAM-Behavior-Annotation-Model.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubenlopez77/BAM-Behavior-Annotation-Model/issues"
+  },
+  "homepage": "https://github.com/rubenlopez77/BAM-Behavior-Annotation-Model#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.38.0",
+    "playwright": "^1.56.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
+  }
+}
