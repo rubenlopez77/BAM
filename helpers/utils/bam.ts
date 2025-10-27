@@ -9,13 +9,14 @@ import { test as base } from '@playwright/test';
  * los helpers ejecutan y verifican.
  */
 type BamTest = typeof base & {
-  (title: string, fn: (args: any) => void): void;
+  (title: string, fn: (...args: any[]) => unknown): ReturnType<typeof base>;
 };
 
-const bamTest = ((title: string, fn: (args: any) => void) => {
-  base(title, async (ctx) => {
+const bamTest = ((title, fn) => {
+  base(title, async function ({}, testInfo, workerInfo) {
+    const fixtures = arguments[0] as Record<string, unknown>;
     try {
-      const result = fn(ctx);
+      const result = fn(fixtures, testInfo, workerInfo);
       // Detecta promesas sin romper el tipado
       if (result && typeof (result as any).then === 'function') {
         await result;
