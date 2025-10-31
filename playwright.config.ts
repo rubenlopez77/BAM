@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import env from "./namespace/tools/env" 
+import env from "./tools/env" 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -16,7 +16,7 @@ import env from "./namespace/tools/env"
 
 export default defineConfig({
 
-  testDir: './namespace/pruebas',
+  testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */

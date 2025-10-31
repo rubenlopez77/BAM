@@ -1,4 +1,5 @@
 {
-    "inlineChat.hideOnRequest": true,
-    "inlineChat.notebookAgent": true
+  "playwrightTest.configFile": "playwright.config.ts",
+  "playwrightTest.trace": "on",
+  "playwrightTest.project": "chromium"
 }

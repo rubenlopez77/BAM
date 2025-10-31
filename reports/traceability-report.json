@@ -1,0 +1,38 @@
+[
+  {
+    "id": "REQ-LOGIN-001",
+    "title": "Validación de login con credenciales válidas",
+    "description": "Como usuario, al introducir credenciales correctas debo poder acceder al sistema.",
+    "priority": "High",
+    "tags": [
+      "security",
+      "login"
+    ],
+    "testName": "Validación de login con credenciales válidas",
+    "file": "login.test.ts"
+  },
+  {
+    "id": "REQ-LOGIN-002",
+    "title": "Validación de login con credenciales inválidas",
+    "description": "Como usuario, al introducir credenciales correctas debo ver un m ensaje de erro.",
+    "priority": "High",
+    "tags": [
+      "security",
+      "login"
+    ],
+    "testName": "Validación de login con credenciales invalidas",
+    "file": "login.test.ts"
+  },
+  {
+    "id": "REQ-LOGIN-004",
+    "title": "Logout de la aplicación",
+    "description": "Como usuario, y una vez logado debo poder cerrar sesión y volver al estado inicial. La sesión se debe limpiar.",
+    "priority": "High",
+    "tags": [
+      "security",
+      "login"
+    ],
+    "testName": "Logout de la aplicación",
+    "file": "login.test.ts"
+  }
+]
