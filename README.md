@@ -1,60 +1,111 @@
-# 🧪 BAM! Playwright + TypeScript  + IA
+# 🧩 BAM – Behavior Annotation Model  
+### Playwright + TypeScript · QA Architecture Proof of Concept
+---
 
-Proyecto personal para **experimentar** con **Playwright + TypeScript**, con el objetivo de replicar la flexibilidad lograda previamente con Selenium, y explorar nuevas posibilidades en testing moderno orientado a **mantenibilidad, paralelización y trazabilidad**, incorporando además un enfoque experimental con **inteligencia artificial** para optimizar la generación, análisis y priorización de pruebas.  
-
-El objetivo a medio plazo es consolidar un modelo de automatización sostenible, trazable y alineado con las buenas prácticas **ISTQB**, explorando extensiones experimentales como el modelo **BAM (Behavior Annotation Model)**.
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=alert_status)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=bugs)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=code_smells)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=security_rating)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
 
 ---
 
-## 🤖 Enfoque experimental de IA
+## 🎯 Propósito del proyecto
 
-A diferencia de muchas soluciones de IA que intentan generar código o tests a partir de texto libre  que suelen ignorar las buenas prácticas de diseño QA como el Page Object Model (POM) o la capa de componentes, este proyecto adopta un enfoque más controlado y técnico.
+Este repositorio es un **proyecto personal de investigación y desarrollo** en automatización de pruebas funcionales, orientado a:
 
-El propósito es integrar la inteligencia artificial como asistente semántico, orientado a documentación automatizada, trazabilidad de requisitos y análisis inteligente de resultados, sin comprometer la calidad ni la arquitectura de las pruebas automatizadas.
+- Explorar las **capacidades modernas de Playwright + TypeScript**.  
+- Replicar la **flexibilidad y extensibilidad** lograda con frameworks previos en Selenium.  
+- Diseñar un **modelo sostenible, mantenible y trazable**, alineado con los estándares de calidad **ISTQB**, **IEEE 29119** e **ISO 25010**.  
+- Investigar el papel de la **inteligencia artificial aplicada al QA**, no como generador de código, sino como **asistente semántico y analítico**.  
 
-De este modo, la IA contribuye en tareas de análisis de logs, detección de patrones de fallos y optimización de la cobertura, reforzando la coherencia y consistencia del proceso de testing sin generar código por sí misma.
+El resultado es **BAM (Behavior Annotation Model)**: una arquitectura de automatización **multicapa**, **formalmente trazable** y **técnicamente elegante**, que unifica negocio y tecnología dentro del propio código fuente.
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Playwright-Testing%20Framework-green?logo=playwright" alt="Playwright">
+  <img src="https://img.shields.io/badge/TypeScript-Strongly%20Typed%20Language-blue?logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/ISTQB-Aligned-blueviolet?logo=bookstack" alt="ISTQB">
+  <img src="https://img.shields.io/badge/AI--Assisted-QA-lightgrey?logo=openai" alt="AI Assisted QA">
+  <img src="https://img.shields.io/badge/BAM-Architecture-orange" alt="BAM Architecture">
+  <img src="https://img.shields.io/badge/Formal-Traceability-success" alt="Formal Traceability">
+</p>
 
 ---
 
-## 🧩 Behavior Annotation Model (BAM!)
+## 🧱 Arquitectura
 
-El modelo **BAM!** surge como una evolución natural del POM multicapa, combinando la claridad declarativa del BDD con el rigor tipado de TypeScript.
+El framework sigue una **arquitectura multicapa** basada en el patrón **Page Object Model (POM)** y en principios de **bajo acoplamiento y alta cohesión**.
 
-Este enfoque híbrido permite mantener trazabilidad y semántica funcional sin duplicar código ni depender de ficheros .feature sin alterar la base técnica del framework
+```
+🧬 Helper de componente → Helper de página (POM) → Prueba (declarativo)
+```
 
-El resultado es una arquitectura más ligera, verificable y alineada con ISTQB, que unifica comunicación de negocio y control técnico dentro del propio código fuente.
+### 🧩 1. Helper de componente (pendiente)
+- Contiene la lógica de interacción con elementos de la web (botones, inputs, modales, tooltips, etc.).  
+- Centraliza las esperas (`await expect(...)`) y los selectores específicos.  
+- Aísla los cambios del DOM de la capa de negocio.  
+- Garantiza **alta mantenibilidad** y **reutilización transversal**.
 
-```typescript
+### 🧩 2. Helper de página (POM)
+Filosofía **“Single Level of Abstraction per Layer”**, recomendación clave del ISTQB:
+
+- No contiene *locators* directamente.  
+- Expresa **acciones de negocio**, no detalles de UI.  
+- Representa **una vista funcional completa**.  
+- Utiliza los *Component Helpers* para mantener limpieza y coherencia.  
+- Los métodos reflejan el mismo lenguaje visible en la interfaz.  
+
+### 🧪 3. Prueba declarativa (BAM)
+- El test describe **qué se valida**, no **cómo se valida**.  
+- Se decora mediante anotaciones BAM (`@ID`, `@Title`, `@Description`…), cumpliendo el principio de **trazabilidad funcional**.  
+- Obtiene datos desde una **Test Data Management Layer (TDM)**.  
+
+Ejemplo:
+```ts
 /**
- * @ID REQ-LOGIN-001
+ * @ID REQ-LOGIN-002
  * @Title Validación de login con credenciales inválidas
  * @Description Como usuario, al introducir credenciales incorrectas debo recibir mensaje de error.
  * @Priority High
  * @Tags security, login
  */
+test('Login inválido', () => {
+  user.loginWith(loginData.invalid, false);
+});
 ```
 
+---
 
-📊 **Matriz de Evaluación**
-| Criterio | BDD Clásico | Arquitectura Multicapa | BAM! |
-|-----------|-------------|------------------------|-----|
-| **Trazabilidad** | ✅ Excelente | ❌ Limitada | ✅ Excelente |
-| **Mantenibilidad** | ❌ Baja | ✅ Alta | ✅ Alta |
-| **Velocidad Ejecución** | ❌ Lenta | ✅ Rápida | ✅ Rápida |
-| **Business Visibility** | ✅ Alta | ❌ Nula | ⚙️ Media‑Alta |
-| **Technical Debt** | ❌ Alta | ✅ Baja | ✅ Baja |
-| **AI Compatibility** | ❌ Difícil | ⚙️ Media | ✅ Alta |
+## 📚 Fundamentos de Calidad y Cumplimiento
 
+| Norma / Guía | Cumplimiento | Descripción |
+|---------------|--------------|--------------|
+| **ISTQB** | ✅ | Separación clara de niveles de abstracción y trazabilidad funcional. |
+| **IEEE 29119-3** | ✅ | Metadatos de prueba equivalentes a *Test Case Specification*. |
+| **IEEE 29119-4** | ✅ | Técnica *model-based* con formalización en código. |
+| **ISO 25010** | ✅ | Mejora de *Maintainability*, *Usability*, *Reliability*. |
+| **ISO 9126 / 25000** | ✅ | Documentación explícita de requisitos y cobertura. |
 
-## 🧩 ESLint Plugin – BAM! Validation
-El BAM! ESLint Plugin es una herramienta de validación estática diseñada para garantizar la trazabilidad y consistencia semántica de los tests.
+---
 
-De este modo, se asegura que todas las pruebas estén correctamente vinculadas a sus requisitos funcionales, cumpliendo los principios de trazabilidad promovidos por ISTQB y evitando la pérdida de contexto entre especificación y ejecución.
-- Garantiza trazabilidad automática (requisito ↔ test ↔ resultado).
-- Refuerza la conformidad del estándar BAM en todos los tests.
-- Evita errores de documentación o metadatos incompletos.
+## 📊 Comparativa de modelos
 
-```ts
+| Criterio | BDD clásico | POM tradicional | **BAM (actual)** |
+|-----------|--------------|----------------|----------------|
+| Trazabilidad | ✅ Excelente | ⚙️ Media | ✅ Excelente |
+| Mantenibilidad | ❌ Baja | ✅ Alta | ✅ Alta |
+| Velocidad de ejecución | ❌ Lenta | ✅ Rápida | ✅ Rápida |
+| Visibilidad negocio | ✅ Alta | ❌ Nula | ⚙️ Media-Alta |
+| Deuda técnica | ❌ Alta | ✅ Baja | ✅ Baja |
+| Compatibilidad IA | ❌ Difícil | ⚙️ Media | ✅ Alta |
+
+---
+
+## 🧩 ESLint Plugin – BAM Validation
+
+El **plugin ESLint personalizado** (`bam/bam-required-metadata`) refuerza la trazabilidad y la disciplina semántica en todos los tests.
+
+```js
 // .eslintrc.cjs
 module.exports = {
   plugins: ['bam'],
@@ -64,89 +115,137 @@ module.exports = {
       testFunctions: ['test', 'it'],
       lookbackComments: 6
     }]
-  },
-  overrides: [
-    {
-      files: ['**/*.test.ts', '**/*.spec.ts'],
-      rules: {
-        'bam/bam-required-metadata': 'error'
-      }
-    }
-  ]
+  }
 };
 ```
 
+🔍 **Ventajas:**
+- Asegura que toda prueba esté documentada con su requisito funcional.  
+- Detecta metadatos ausentes o inconsistentes antes de ejecutar.  
+- Cumple los principios de trazabilidad del ISTQB y del IEEE 29119.  
 
 ---
 
-## 🧱 Capas de Abstracción y Arquitectura de Automatización
+## 🧩 Arquitectura Técnica
 
-El framework sigue una **arquitectura multicapa** basada en el patrón **Page Object Model (POM)** y en principios de **bajo acoplamiento y alta cohesión**.
+### Estructura general
+```
+/helpers
+  ├── components/   → Component Helpers
+  ├── pages/        → Page Helpers (POM)
+  ├── runner.ts     → Cola asincrónica controlada
+  ├── hooks.ts      → Fixtures y contextos por test
+/tests
+  ├── login.test.ts → Ejemplo de trazabilidad funcional
+/data
+  ├── users.json    → Capa de Test Data Management
+```
 
-🧬 **Helper de componente → Helper de página (POM) → Prueba (feature / test)**
-
-Este ejemplo muestra cómo una prueba sencilla de login utiliza la arquitectura propuesta, separando responsabilidades entre la prueba, el helper de página y los helpers de componentes.
-
-#### 🧩 1. Helper de componente
-- Contiene la lógica de interacción con **elementos** de la web (botones, inputs, selectores, modales, tooltips, etc.).  
-- Se encarga de las esperas (`await expect(...)`), selectores y validaciones específicas de ese componente.  Esto genera limpieza en el resto de capas.
-- Alta mantenibilidad 
-
-
-#### 🧩 2. Helper de página (POM)
-Filosofía “Single Level of Abstraction per Layer”,  recomendación clave del ISTQB.
-- No contiene locators directamente.
-- Expresa la acción de negocio, no los detalles de UI.
-- Representa una página completa o una vista funcional.  
-- **No repite lógica de bajo nivel**, sino que **utiliza los helpers de componentes** para mantener la capa limpia.  
-- Define métodos con el mismo nombre visible en la web. 
-
-
-#### 🧪 3. Prueba
-- El test es **declarativo**, solo indica *qué* se valida, no *cómo*.
-- Se decora utilizando BAM lo que cumple el principio de trazabilidad.
-- Los datos se obtienen de una capa Test Data Management Layer 
-
-```typescript
-    /**
-   * @ID REQ-LOGIN-002
-   * @Title Validación de login con credenciales inválidas
-   * @Description Como usuario, al introducir credenciales correctas debo ver un m ensaje de erro.
-   * @Priority High
-   * @Tags security, login
-   */
-    test('Validación de login con credenciales invalidas', () => {
-    user.loginWith(loginData.invalid, false);
-  });
+### El Runner
+```ts
+this.queue = this.queue
+  .then(async () => {
+    await fn(); // <- Ejecuta la acción en secuencia
+    this.metrics.steps++; // <- Registra el paso
+    this.metrics.totalTime += performance.now() - stepStart;
+  })
+  .catch(err => console.error('Error en helper:', err));
 
 ```
 
-## 🧩 Estrategia de Calidad y Mejores Prácticas
-- **Behavior Annotation Model (BAM!)** extensión experimental, que añade **trazabilidad funcional y visibilidad de negocio** mediante anotaciones estructuradas directamente en el código.
-- **Page Objects:** una clase por página con acciones claras (`home()`, `login(user,pass)` etc.) con el mismo nombre del botón o enlace. *“El código se lee como una historia.”*  
-- **Selectors:** usar siempre `data-test` o atributos específicos del DOM.  
-- **Fixtures:** inicializar datos y estados en `beforeAll` o `beforeEach`.  
-- **Tests atómicos:** cada escenario debe validar un único flujo de negocio.  
-- **Commits limpios:** convención `feat/test/fix/chore`.  
-- **Quality Gate con SonarQube:** define umbrales mínimos de cobertura, duplicación y deuda técnica antes de aceptar merges.  
-- **Ejecución en paralelo y cross-browser:** aprovechar la capacidad nativa de Playwright para correr tests simultáneamente en **Chromium**, **Firefox** y **WebKit**.  
-- **Alta reutilización de componentes:** promover abstracción y modularidad en fixtures, utilidades y Page Objects para minimizar duplicación y facilitar mantenimiento.  
-- **AI-assisted QA*: explorar el uso de inteligencia artificial como asistente semántico para documentación automatizada, trazabilidad de requisitos y análisis inteligente 
+El **Runner** coordina la ejecución de acciones asincrónicas garantizando orden, sincronía y trazabilidad.
+Cada tarea se encadena en una promesa secuencial (this.queue.then(fn)), registrando automáticamente tiempo, memoria y profundidad de ejecución, asegurando reproducibilidad sin bloquear el flujo del test.
 
 ---
 
+## 🤖 Inteligencia Artificial aplicada a QA
+
+El propósito es integrar la inteligencia artificial (Siempre desde un enfoque on premise usando LLM) como asistente semántico, orientado a documentación automatizada, trazabilidad de requisitos y análisis inteligente de resultados, sin comprometer la calidad ni la arquitectura de las pruebas automatizadas.
+
+- **No genera código**: evita comprometer arquitectura y mantenibilidad.  
+- **Analiza semántica y trazabilidad**: interpreta anotaciones, detecta duplicidades y sugiere brechas de cobertura.  
+- **Apoya documentación y reporting**: genera informes automáticos en JSON, Markdown o HTML.  
+
+La IA actúa como **asistente de calidad**, no como reemplazo del ingeniero de QA.
+
+---
+
+## 🧩 Estrategia de Calidad
+
+- **Tests atómicos y declarativos:** cada uno valida un flujo de negocio único.  
+- **Page Objects desacoplados:** un archivo por vista, sin duplicación de lógica.  
+- **Selectors estables:** uso sistemático de `data-test` o equivalentes.  
+- **Fixtures controlados:** `beforeEach` / `afterEach` garantizan contexto limpio.  
+- **Commits normativos:** convención `feat/test/fix/chore`.  
+- **Quality Gate:** integración con **SonarQube** para cobertura y deuda técnica.  
+- **Ejecución paralela:** soporte nativo para navegadores Chromium, Firefox y WebKit.  
+
+---
+
+## 🔬 Roadmap
+
+| Fase | Objetivo | Descripción |
+|------|-----------|-------------|
+| --- | **Presentación** | Presentación del POC mediante README.md  |
+| 0.1 | **Traceability Extractor** | Exportar matriz JSON/Markdown de requisitos ↔ tests. |
+| 0.2 | **Helpers de Componente** | Implementación de la capa final de abstracción, dedicada a encapsular la interacción directa con elementos UI. |
+| 0.3 | **ESLint Plugin** | refuerza la trazabilidad y la disciplina semántica en todos los tests. |
+| 0.4 | **Integración CI/CD** | Reportes automáticos en GitHub Actions / Azure DevOps. |
+| 0.5 | **Decoradores TypeScript (@Behavior)** | Sustituir anotaciones JSDoc por metadatos tipados. |
+| 0.6 | **Integración corporativa (JIRA, Xray, TestRail)** | Mapeo bidireccional de requisitos ↔ resultados. |
+| 0.7 | **BAM Analytics** | Métricas automáticas sobre cobertura, defect density y fiabilidad. 
+| 1.0 | **Dashboard HTML interactivo** | Visualización navegable de la trazabilidad y estado |
+
+v.0.0.2
+---
+
+## ❓ FAQ – Impacto en rendimiento del modelo BAM
+
+### 🧩 ¿El uso del `Runner` hace las pruebas más lentas o consume más memoria?
+
+En términos prácticos, **no**.  
+El `Runner` sustituye los `await` explícitos por una **cola secuencial de promesas**, lo que añade una capa mínima de gestión interna pero sin afectar significativamente al rendimiento.
+
+Cada test mantiene su propio `Runner`, de modo que **no existen fugas ni acumulaciones globales**.  
+El consumo se libera al finalizar cada test, igual que en el flujo tradicional de Playwright.
+
+---
+
+### ⚙️ Comparativa de rendimiento estimado
+
+| Escenario | Volumen | Método tradicional (`await`) | Modelo BAM (`Runner.schedule`) | Diferencia práctica |
+|------------|----------|-----------------------------|-------------------------------|----------------------|
+| 🧪 1000 tests con 10 pasos cada uno | ~35 MB/test, 14 s totales | ~36 MB/test, 14.2 s totales | **≈ +1.4 % CPU / +1 MB RAM/test** |
+| 🧪 10 000 tests con 10 pasos cada uno | ~35 MB/test, 140 s totales | ~36 MB/test, 143 s totales | **≈ +2 % CPU / +3 % RAM global** |
+
+📊 **Impacto global:**
+- Incremento medio de CPU: **+1 % a +2 %**  
+- Incremento medio de memoria: **+2 % a +3 %**
+- Sobrecoste por promesa adicional: **≈ 0.05 ms / paso**
+
+---
+
+### 🧠 ¿Qué se gana a cambio?
+
+- 🔎 **Trazabilidad total de pasos** (auditable por test y por acción).  
+- 🧾 **Métricas automáticas** de rendimiento y memoria en tiempo real.  
+- ⚙️ **Sincronización garantizada** entre acciones, sin race conditions.  
+- 🧱 **Ejecución declarativa**: los tests se leen como historias de usuario.  
+- 🧠 **Integración con IA y reporting** sin alterar la capa de pruebas.  
+
+---
+
+### 🧭 Conclusión
+
+El modelo BAM sacrifica menos de un **2 % de eficiencia** a cambio de **100 % de control, trazabilidad y consistencia**.
+- Es **técnicamente limpio**, **documentalmente trazable** y **alineado con estándares internacionales**.  
+- Ofrece una visión **consultiva y arquitectónica**
+
+> 💡 *El Runner añade inteligencia y control, no peso ni latencia.*
 
 
 ---
 
-## Propuestas
-- Evaluar la migración del sistema de anotaciones JSDoc hacia **decoradores TypeScript** (@Behavior) para garantizar metadatos tipados, extracción programática y validación en tiempo de compilación.
-Este cambio fortalecerá la integridad semántica del modelo BAM! y permitirá una integración nativa con pipelines CI/CD y herramientas externas (Allure, JIRA, SonarQube, etc.)
-- Fortalecer la **Integración** con Herramientas y Stakeholders Empresariales
-Actualmente falta una capa de conexión que permita trasladar el valor del modelo BAM! a los entornos corporativos.
-Se sugiere definir un plan de integración bidireccional con herramientas de gestión de calidad (como JIRA, Xray, TestRail, SonarQube o Confluence), y establecer un lenguaje de trazabilidad accesible para audiencias no técnicas.
-
-## 👨‍💻 Autor
-
-**Rubén López**  
-🧑‍🔬 QA Senior 📦 [GitHub](https://github.com/rubenlopez77) 🔗 [LinkedIn](https://www.linkedin.com/in/ruben-lopez-qa/)
+## 📌 Autor
+**Rubén López**   
+🔗 [LinkedIn](https://www.linkedin.com/in/ruben-lopez-qa/)

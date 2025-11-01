@@ -11,8 +11,7 @@ export class Login {
 
   loginWith(credentials: Creds, expectSuccess = true): void {
   this.runner.schedule(async () => {
-    console.log('▶️ Iniciando flujo de login...');
-
+   
     // Espera al botón y abre modal
     await this.page.waitForSelector('#login2', { state: 'visible' });
     await this.page.locator('#login2').click();
@@ -43,7 +42,6 @@ export class Login {
       await dialog.accept();
     }
 
-    console.log('✅ Flujo de login completado');
   });
 }
 
