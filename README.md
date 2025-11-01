@@ -34,16 +34,6 @@ El resultado es **BAM (Behavior Annotation Model)**: una arquitectura de automat
 
 ---
 
-## 🧠 Filosofía del modelo BAM
-
-El modelo BAM surge de una pregunta fundamental:  
-> “¿Podemos mantener la trazabilidad y legibilidad del BDD sin depender de Gherkin ni parsers externos?”
-
-La respuesta es **sí**.  
-BAM reemplaza los `.feature` por **anotaciones semánticas estructuradas**, interpretadas por un *traceability extractor*, logrando una documentación formal y auditable **directamente en el código TypeScript**.
-
----
-
 ## 🧱 Arquitectura
 
 El framework sigue una **arquitectura multicapa** basada en el patrón **Page Object Model (POM)** y en principios de **bajo acoplamiento y alta cohesión**.
