@@ -8,15 +8,6 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=security_rating)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Playwright-Testing%20Framework-green?logo=playwright" alt="Playwright">
-  <img src="https://img.shields.io/badge/TypeScript-Strongly%20Typed%20Language-blue?logo=typescript" alt="TypeScript">
-  <img src="https://img.shields.io/badge/ISTQB-Aligned-blueviolet?logo=bookstack" alt="ISTQB">
-  <img src="https://img.shields.io/badge/AI--Assisted-QA-lightgrey?logo=openai" alt="AI Assisted QA">
-  <img src="https://img.shields.io/badge/BAM-Architecture-orange" alt="BAM Architecture">
-  <img src="https://img.shields.io/badge/Formal-Traceability-success" alt="Formal Traceability">
-</p>
-
 ---
 
 ## 🎯 Propósito del proyecto
@@ -29,6 +20,15 @@ Este repositorio es un **proyecto personal de investigación y desarrollo** en a
 - Investigar el papel de la **inteligencia artificial aplicada al QA**, no como generador de código, sino como **asistente semántico y analítico**.  
 
 El resultado es **BAM (Behavior Annotation Model)**: una arquitectura de automatización **multicapa**, **formalmente trazable** y **técnicamente elegante**, que unifica negocio y tecnología dentro del propio código fuente.
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Playwright-Testing%20Framework-green?logo=playwright" alt="Playwright">
+  <img src="https://img.shields.io/badge/TypeScript-Strongly%20Typed%20Language-blue?logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/ISTQB-Aligned-blueviolet?logo=bookstack" alt="ISTQB">
+  <img src="https://img.shields.io/badge/AI--Assisted-QA-lightgrey?logo=openai" alt="AI Assisted QA">
+  <img src="https://img.shields.io/badge/BAM-Architecture-orange" alt="BAM Architecture">
+  <img src="https://img.shields.io/badge/Formal-Traceability-success" alt="Formal Traceability">
+</p>
 
 ---
 
