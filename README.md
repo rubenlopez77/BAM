@@ -108,18 +108,15 @@ Filosofía “Single Level of Abstraction per Layer”,  recomendación clave de
 - Los datos se obtienen de una capa Test Data Management Layer 
 
 ```typescript
-  /**
- * @ID REQ-LOGIN-001
- * @Title Validación de login con credenciales inválidas
- * @Description Usuario recibe error al introducir credenciales incorrectas
- */
-  test('should fail login with invalid credentials', async ({ page }) => { 
-
-	const user = new User(page);
-	const loginData = LoginTestData.INVALID_CREDENTIALS;
-	
-	user.loginWith(loginData, false);
-
+    /**
+   * @ID REQ-LOGIN-002
+   * @Title Validación de login con credenciales inválidas
+   * @Description Como usuario, al introducir credenciales correctas debo ver un m ensaje de erro.
+   * @Priority High
+   * @Tags security, login
+   */
+    test('Validación de login con credenciales invalidas', () => {
+    user.loginWith(loginData.invalid, false);
   });
 
 ```

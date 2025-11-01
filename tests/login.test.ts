@@ -1,5 +1,8 @@
-import { test } from '../helpers/hooks';
-import loginData from '../data/users.json';
+import { test } from '@helpers/hooks';
+const loginData = require('../data/users.json');
+
+console.log(loginData.username);
+
 
 let user: any; //actor que realiza la accion
 
@@ -26,7 +29,6 @@ test.describe('Login flow →', () => {
    * @Priority High
    * @Tags security, login
    */
-
     test('Validación de login con credenciales invalidas', () => {
     user.loginWith(loginData.invalid, false);
   });
@@ -39,7 +41,6 @@ test.describe('Login flow →', () => {
    * @Priority High
    * @Tags security, login
    */
-
     test('Logout de la aplicación', () => {
     user.loginWith(loginData.valid, true);
     user.doLogOut();

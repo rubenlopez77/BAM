@@ -19,7 +19,7 @@ export const test = base.extend<Fixtures>({
     const browserPage = await context.newPage();
 
     const baseUrl = process.env.BASE_URL || 'https://www.demoblaze.com';
-    console.log(`🌐 Navegando a: ${baseUrl}`);
+    console.log(`🌐 Navegando a: ${baseUrl} usando ${testInfo.project.name}`);
     await browserPage.goto(baseUrl);
 
     const factory = new PageFactory(browserPage, runner);

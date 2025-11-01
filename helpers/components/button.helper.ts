@@ -2,7 +2,7 @@
 import { expect, Page, Locator } from '@playwright/test';
 
 export class ButtonHelper {
-  constructor(private page: Page) {}
+  constructor(private readonly page: Page) {}
 
   async click(locator: Locator, name?: string) {
     await expect(locator).toBeVisible();

@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { Runner } from '../../helpers/runner';
+import { Runner } from '@helpers/runner';
 
 type Creds = { username: string; password: string };
 

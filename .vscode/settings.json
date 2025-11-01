@@ -1,5 +1,9 @@
 {
   "playwrightTest.configFile": "playwright.config.ts",
   "playwrightTest.trace": "on",
-  "playwrightTest.project": "chromium"
+  "playwrightTest.project": "chromium",
+  "sonarlint.connectedMode.project": {
+    "connectionId": "Local SonarQube",
+    "projectKey": "Playwright"
+  }
 }

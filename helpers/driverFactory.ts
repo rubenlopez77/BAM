@@ -7,7 +7,7 @@ export class DriverFactory {
     if (this.browser?.isConnected()) return this.browser;
 
     const name = process.env.BROWSER || 'chromium';
-    const headless  =false; //= process.env.HEADLESS !== 'false';
+    const headless  = process.env.HEADLESS !== 'false';
 
     switch (name) {
       case 'firefox':

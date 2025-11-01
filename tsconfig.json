@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "CommonJS",
+    "module": "commonjs",
+    "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "outDir": "dist",
+    "baseUrl": "./",
+    "paths": {
+      "@support/*": ["support/*"],
+      "@helpers/*": ["helpers/*"],
+      "@tests/*": ["tests/*"],
+
+    }
   },
-  "include": ["tools/**/*.ts", "tests/**/*.ts"]
+ "include": ["tests/**/*", "helpers/**/*", "support/**/*"]
 }
