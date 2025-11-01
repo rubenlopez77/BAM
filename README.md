@@ -3,11 +3,10 @@
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/github/actions/workflow/status/rubenlopez77/BAM-Behavior-Annotation-Model/playwright.yml?label=CI%20Tests&logo=githubactions&logoColor=white" alt="CI Tests">
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=alert_status" alt="Quality Gate">
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=sqale_rating" alt="Maintainability">
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=reliability_rating" alt="Reliability">
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=security_hotspots_rating" alt="Security Hotspots">
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=bugs)](https://sonarcloud.io/summary/new_code?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=rubenlopez77_BAM-Behavior-Annotation-Model)
 </p>
 
 <p align="center">
