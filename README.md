@@ -3,10 +3,11 @@
 ---
 
 <p align="center">
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rubenlopez77_BAM-Behavior-Annotation-Model)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=bugs)](https://sonarcloud.io/summary/new_code?id=rubenlopez77_BAM-Behavior-Annotation-Model)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=rubenlopez77_BAM-Behavior-Annotation-Model)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=alert_status)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=bugs)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=code_smells)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=rubenlopez77_BAM-Behavior-Annotation-Model&metric=security_rating)](https://sonarcloud.io/summary/overall?id=rubenlopez77_BAM-Behavior-Annotation-Model)
 
 </p>
 
